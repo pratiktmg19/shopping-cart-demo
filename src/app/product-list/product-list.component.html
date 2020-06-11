@@ -1,0 +1,11 @@
+<div *ngFor="let product of products; index as productId">
+<p>
+<a [title]="product.name + ' details'" [routerLink]="['/products', productId]">{{product.name}}</a>
+<br>
+<span *ngIf="product.description">Description:{{ product.description }}</span>
+</p>
+<button (click)="onShare()">Share</button>
+<app-alert 
+[product]="product"
+(notify)="onNotify()"></app-alert>
+</div>
